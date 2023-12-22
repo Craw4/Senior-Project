@@ -9,9 +9,10 @@ package edu.hanover.hc24_luuk_crawford_senior_project.data
 data class MenuData(
     var menuItemList: MutableList<MenuItem>,
     var customizationOptions: MutableMap<String, Customization>,
-    var idToMenuItem: MutableMap<Long, MenuItem> ) {
+    var idToMenuItem: MutableMap<Long, MenuItem>,
+) {
     companion object {
-        private var myMenu = MenuData(mutableListOf<MenuItem>(), mutableMapOf<String, Customization>(),mutableMapOf<Long, MenuItem>())
+        private var myMenu = MenuData(mutableListOf<MenuItem>(), mutableMapOf<String, Customization>(), mutableMapOf<Long, MenuItem>())
 
         fun get(): MenuData {
             return myMenu
@@ -31,20 +32,20 @@ data class MenuData(
          * @param itemType name of item type (string)
          * @param customization avialable toppings (Customization type)
          * */
-        fun setItemTypeToCustomization(itemType: String, customization: Customization){
+        fun setItemTypeToCustomization(itemType: String, customization: Customization) {
             myMenu.customizationOptions[itemType] = customization
         }
 
-        fun getCustomizationTypeOfItemID(id: Long): String{
+        fun getCustomizationTypeOfItemID(id: Long): String {
             return myMenu.idToMenuItem[id]!!.customizationType
         }
 
-        fun getCustomizationOptionsOfItemID(id: Long): Customization{
+        fun getCustomizationOptionsOfItemID(id: Long): Customization {
             val customizationType = getCustomizationTypeOfItemID(id)
             return myMenu.customizationOptions[customizationType]!!
         }
 
-        fun getMenuItemFromItemID(id: Long): MenuItem{
+        fun getMenuItemFromItemID(id: Long): MenuItem {
             return myMenu.idToMenuItem[id]!!
         }
     }

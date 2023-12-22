@@ -1,6 +1,5 @@
 package edu.hanover.hc24_luuk_crawford_senior_project.activities
 
-
 // ...
 
 import android.os.Bundle
@@ -47,8 +46,7 @@ class MainActivity : ComponentActivity() {
                 .fillMaxSize()
                 .graphicsLayer {
                     alpha = 0.1f
-                }
+                },
         )
     }
 }
-

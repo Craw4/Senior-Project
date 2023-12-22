@@ -38,25 +38,25 @@ fun SubmitOrderButton(onNavigateToOrders: () -> Unit) {
         modifier = Modifier
             .fillMaxWidth()
             .padding(16.dp),
-        contentAlignment = Alignment.Center
+        contentAlignment = Alignment.Center,
     ) {
         Button(
             onClick = {
                 submitButtonEnabled = false
-                if (25000 < (System.currentTimeMillis() - CurrentOrderManager.getCurrentOrderTime())){
+                if (25000 < (System.currentTimeMillis() - CurrentOrderManager.getCurrentOrderTime())) {
                     submitCurrentOrder(onNavigateToOrders, context)
-                }
-                else{
+                } else {
                     ToastShow(context, R.string.alreadyOrderedRecently)
                 }
             },
             shape = RoundedCornerShape(18.dp),
-            modifier = Modifier.testTag("submitOrderButton")
+            modifier = Modifier.testTag("submitOrderButton"),
         ) {
             Text(
                 text = stringResource(id = R.string.submitOrder),
                 fontSize = 30.sp,
-                color = Color.White, textAlign = TextAlign.Center
+                color = Color.White,
+                textAlign = TextAlign.Center,
             )
         }
     }

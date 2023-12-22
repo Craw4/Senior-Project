@@ -14,17 +14,18 @@ import org.junit.Test
 class ConfirmDataAndEnumExistsTest {
 
     @Test
-    fun destinationEnumExists(){
+    fun destinationEnumExists() {
         val welcomeName = Destination.welcomeScreen.name
         val menuName = Destination.menuScreen.name
         val toppingName = Destination.toppingsScreen.name
 
-        assertEquals("welcomeScreen",welcomeName)
-        assertEquals("menuScreen",menuName)
-        assertEquals("toppingsScreen",toppingName)
+        assertEquals("welcomeScreen", welcomeName)
+        assertEquals("menuScreen", menuName)
+        assertEquals("toppingsScreen", toppingName)
     }
+
     @Test
-    fun itemStatusEnumExists(){
+    fun itemStatusEnumExists() {
         val cancelledName = ItemStatus.cancelled.name
         val inProgressName = ItemStatus.inProgress.name
         val completeName = ItemStatus.complete.name
@@ -35,11 +36,19 @@ class ConfirmDataAndEnumExistsTest {
     }
 
     @Test
-    fun userOrderDataClassExists(){
-        val sides: MutableList<String> = mutableListOf("side1","side2")
+    fun userOrderDataClassExists() {
+        val sides: MutableList<String> = mutableListOf("side1", "side2")
         val toppings: MutableList<String> = mutableListOf("topping1", "topping2")
-        val userOrder = UserOrder("userName",1000L,2000L,3000L,
-            Customization(sides,toppings),ItemStatus.inProgress,4000L,5000L)
+        val userOrder = UserOrder(
+            "userName",
+            1000L,
+            2000L,
+            3000L,
+            Customization(sides, toppings),
+            ItemStatus.inProgress,
+            4000L,
+            5000L,
+        )
 
         assertEquals("userName", userOrder.user)
         assertEquals(1000L, userOrder.userID)
@@ -53,17 +62,16 @@ class ConfirmDataAndEnumExistsTest {
     }
 
     @Test
-    fun testCustomizationDataClassExists(){
-        val sides: MutableList<String> = mutableListOf("a","3")
+    fun testCustomizationDataClassExists() {
+        val sides: MutableList<String> = mutableListOf("a", "3")
         val toppings: MutableList<String> = mutableListOf("b")
         val sauces: MutableList<String> = mutableListOf("c")
-        val glutenFree: MutableList<String> = mutableListOf("d","_")
-        val custom = Customization(sides,toppings, sauces, glutenFree)
+        val glutenFree: MutableList<String> = mutableListOf("d", "_")
+        val custom = Customization(sides, toppings, sauces, glutenFree)
         assertEquals(sides, custom.sides)
         assertEquals(toppings, custom.toppings)
         assertEquals(sauces, custom.sauces)
         assertEquals(glutenFree, custom.glutenFree)
         assertNotEquals(custom.toppings, custom.glutenFree)
     }
-
 }

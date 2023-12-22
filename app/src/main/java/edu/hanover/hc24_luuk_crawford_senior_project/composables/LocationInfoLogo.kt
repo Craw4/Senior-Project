@@ -15,7 +15,6 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.zybooks.hc24_luuk_crawford_senior_project.R
-import edu.hanover.hc24_luuk_crawford_senior_project.composables.hcLogoText
 
 /**
  * College name + food location (underground) in big text.
@@ -24,12 +23,13 @@ import edu.hanover.hc24_luuk_crawford_senior_project.composables.hcLogoText
 fun locationInfoLogo() {
     Spacer(modifier = Modifier.height(8.dp))
     hcLogoText()
-    Box(modifier = Modifier.fillMaxWidth(), contentAlignment = Alignment.Center){
+    Box(modifier = Modifier.fillMaxWidth(), contentAlignment = Alignment.Center) {
         Text(
-            text = stringResource(id = R.string.underground), fontSize = 35.sp,
+            text = stringResource(id = R.string.underground),
+            fontSize = 35.sp,
             fontWeight = FontWeight.Bold,
             textAlign = TextAlign.Center,
-            modifier = Modifier.testTag("undergroundText")
+            modifier = Modifier.testTag("undergroundText"),
         )
     }
 }

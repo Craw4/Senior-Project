@@ -7,7 +7,7 @@ import org.junit.Test
 
 class CurrentOrderManagerTest {
     @Test
-    fun setNameTest(){
+    fun setNameTest() {
         CurrentOrderManager.setUsersName("Bob")
         assertEquals("Bob", CurrentOrderManager.getUserName())
 
@@ -19,7 +19,7 @@ class CurrentOrderManagerTest {
     }
 
     @Test
-    fun getCurrentUserTest(){
+    fun getCurrentUserTest() {
         CurrentOrderManager.setUsersName("Sam")
         CurrentOrderManager.setOrderItemID(202L)
         val currentOrder = CurrentOrderManager.getCurrentUserOrder()
@@ -35,19 +35,19 @@ class CurrentOrderManagerTest {
     }
 
     @Test
-    fun editingCustomizationsTest(){
+    fun editingCustomizationsTest() {
         val order = CurrentOrderManager.getCurrentUserOrder()
 
-        assertEquals(mutableListOf<String>(),order.customization.toppings)
-        assertEquals(mutableListOf<String>(),order.customization.sides)
+        assertEquals(mutableListOf<String>(), order.customization.toppings)
+        assertEquals(mutableListOf<String>(), order.customization.sides)
 
-        testAddAndRemoveFromCustomizationCategory("toppings",  order.customization.toppings)
+        testAddAndRemoveFromCustomizationCategory("toppings", order.customization.toppings)
         testAddAndRemoveFromCustomizationCategory("sides", order.customization.sides)
     }
 
     private fun testAddAndRemoveFromCustomizationCategory(
         categoryString: String,
-        OrderCustomizationList: MutableList<String>
+        OrderCustomizationList: MutableList<String>,
     ) {
         val lettuceExampleEntry = "lettuce"
         val tomatoExampleEntry = "tomato"
@@ -64,19 +64,19 @@ class CurrentOrderManagerTest {
     }
 
     @Test
-    fun getCurrentOrderHashTest(){
+    fun getCurrentOrderHashTest() {
         val hash1 = CurrentOrderManager.getCurrentOrderHash()
         CurrentOrderManager.setUsersName("tempName")
         val hash2 = CurrentOrderManager.getCurrentOrderHash()
         CurrentOrderManager.setOrderItemID(3323L)
         val hash3 = CurrentOrderManager.getCurrentOrderHash()
 
-        assertNotEquals(hash1,hash2)
-        assertNotEquals(hash2,hash3)
+        assertNotEquals(hash1, hash2)
+        assertNotEquals(hash2, hash3)
     }
 
     @Test
-    fun currentOrderTimeTest(){
+    fun currentOrderTimeTest() {
         val expectedStartingDefaultValue = 404L
         val actualStartingTime = CurrentOrderManager.getCurrentOrderTime()
         assertEquals(expectedStartingDefaultValue, actualStartingTime)

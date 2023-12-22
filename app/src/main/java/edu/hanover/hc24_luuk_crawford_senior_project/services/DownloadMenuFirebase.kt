@@ -10,11 +10,11 @@ import edu.hanover.hc24_luuk_crawford_senior_project.data.MenuData.Companion.set
  * Downloads items and toppings from database.
  * Stores locally to menu.
  */
-fun downloadMenuFirebase(){
+fun downloadMenuFirebase() {
     downloadToppings()
     downloadItems()
 }
-private fun downloadToppings(){
+private fun downloadToppings() {
     val db = FirebaseFirestore.getInstance()
     val docRef = db.collection("customization")
     docRef.get()
@@ -26,7 +26,7 @@ private fun downloadToppings(){
                     val toppings = (customizationData["toppings"] as? MutableList<String>) ?: mutableListOf()
                     val glutenFree = (customizationData["glutenFree"] as? MutableList<String>) ?: mutableListOf()
                     val sauces = (customizationData["sauces"] as? MutableList<String>) ?: mutableListOf()
-                    setItemTypeToCustomization(itemType.id,Customization(sides, toppings, sauces, glutenFree))
+                    setItemTypeToCustomization(itemType.id, Customization(sides, toppings, sauces, glutenFree))
                 }
             } else {
                 Log.d(ContentValues.TAG, "No such document")
@@ -37,7 +37,7 @@ private fun downloadToppings(){
         }
 }
 
-private fun downloadItems(){
+private fun downloadItems() {
     val db = FirebaseFirestore.getInstance()
     val docRef = db.collection("menuContent")
     docRef.get()

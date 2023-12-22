@@ -3,7 +3,6 @@ package edu.hanover.hc24_luuk_crawford_senior_project.composables
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.text.KeyboardActions
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
@@ -34,7 +33,7 @@ fun inputUserName() {
         modifier = Modifier
             .fillMaxWidth()
             .padding(16.dp),
-        contentAlignment = Alignment.Center
+        contentAlignment = Alignment.Center,
     ) {
         var text by remember { mutableStateOf("") }
         text = getUserName()
@@ -48,7 +47,7 @@ fun inputUserName() {
             singleLine = true,
             label = { Text(stringResource(id = R.string.yourName), fontSize = 25.sp) },
             textStyle = TextStyle(fontSize = 30.sp),
-            modifier = Modifier.testTag("inputUserName")
+            modifier = Modifier.testTag("inputUserName"),
         )
     }
 }

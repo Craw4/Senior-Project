@@ -8,12 +8,11 @@ import edu.hanover.hc24_luuk_crawford_senior_project.data.MenuItem
  * @return returns MenuItem it created
  */
 fun createItemFrom(food: Map<String, Any>): MenuItem {
-
     return MenuItem(
         name = food["name"] as String,
         id = food["id"] as Long,
         customizationType = food["customizationType"] as String,
         imageLink = food["imageLink"] as String,
-        price = food.getOrElse("price") { "Mealswipe" } as String
+        price = food.getOrElse("price") { "Mealswipe" } as String,
     )
 }

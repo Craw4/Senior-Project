@@ -39,23 +39,23 @@ internal class ToppingsPageTests {
                 "ExampleName",
                 300,
                 "Burger",
-                "https://i.imgur.com/BDa36Zp.jpeg"
-            )
+                "https://i.imgur.com/BDa36Zp.jpeg",
+            ),
         )
         MenuData.addMenuItem(
             MenuItem(
                 "ExampleTwo",
                 350,
                 "Burger",
-                "https://i.imgur.com/BDa36Zp.jpeg"
-            )
+                "https://i.imgur.com/BDa36Zp.jpeg",
+            ),
         )
         val burgerSides = mutableListOf("Hand Cut Fries Test", "Mac-N-Cheese", "Tater Tots")
         val burgerToppings =
             mutableListOf("Lettuce Test", "Tomato", "Onion Test", "Pickle", "Cheese", "Bacon")
         MenuData.setItemTypeToCustomization(
             "Burger",
-            Customization(burgerSides, burgerToppings)
+            Customization(burgerSides, burgerToppings),
         )
         MenuData.addMenuItem(MenuItem())
     }
@@ -72,9 +72,6 @@ internal class ToppingsPageTests {
         navigateToToppingsWith("ExampleName")
         toppingsPageContentsExist()
     }
-
-
-
 
     private fun toppingsPageContentsExist() {
         confirmCheckboxExists("Lettuce Test")
@@ -140,11 +137,11 @@ internal class ToppingsPageTests {
         checkbox.performClick()
         assertEquals(
             mutableListOf(checkboxTestTag),
-            receiveCategoryList(category)
+            receiveCategoryList(category),
         )
         checkbox.performClick()
         assert(
-            receiveCategoryList(category).isEmpty()
+            receiveCategoryList(category).isEmpty(),
         )
     }
 
@@ -153,7 +150,7 @@ internal class ToppingsPageTests {
      * @return customization category contents in list
      */
     private fun receiveCategoryList(
-        customizationCategory: String
+        customizationCategory: String,
     ): MutableList<String> {
         var customList = mutableListOf<String>()
         when (customizationCategory) {
@@ -188,7 +185,7 @@ internal class ToppingsPageTests {
         checkboxLettuce.performClick()
         assertEquals(
             mutableListOf("Hand Cut Fries Test", "Mac-N-Cheese"),
-            CurrentOrderManager.getCurrentUserOrder().customization.sides
+            CurrentOrderManager.getCurrentUserOrder().customization.sides,
         )
         checkboxCheese.performClick()
         checkboxTomato.performClick()
@@ -197,23 +194,24 @@ internal class ToppingsPageTests {
         checkboxLettuce.performClick()
         assertEquals(
             mutableListOf("Mac-N-Cheese"),
-            CurrentOrderManager.getCurrentUserOrder().customization.sides
+            CurrentOrderManager.getCurrentUserOrder().customization.sides,
         )
         checkboxTomato.performClick()
         checkboxFries.performClick()
         assertEquals(
             mutableListOf("Cheese"),
-            CurrentOrderManager.getCurrentUserOrder().customization.toppings
+            CurrentOrderManager.getCurrentUserOrder().customization.toppings,
         )
         checkboxCheese.performClick()
         checkboxFries.performClick()
         assertEquals(
             mutableListOf<String>(),
-            CurrentOrderManager.getCurrentUserOrder().customization.toppings
+            CurrentOrderManager.getCurrentUserOrder().customization.toppings,
         )
     }
+
     @Test
-    fun ensureSelectionsClearTest(){
+    fun ensureSelectionsClearTest() {
         composeTestRule.setContent {
             AppNavHost(Destination.menuScreen.name)
         }
@@ -223,23 +221,22 @@ internal class ToppingsPageTests {
         val checkboxFries = composeTestRule.onNode(hasTestTag("Hand Cut Fries Test"))
         val checkboxLettuce = composeTestRule.onNode(hasTestTag("Lettuce Test"))
 
-
         checkboxFries.performClick()
         checkboxMacNCheese.performClick()
         checkboxLettuce.performClick()
         assertEquals(
             mutableListOf("Hand Cut Fries Test", "Mac-N-Cheese"),
-            CurrentOrderManager.getCurrentUserOrder().customization.sides
+            CurrentOrderManager.getCurrentUserOrder().customization.sides,
         )
 
         pressBack()
         assertEquals(
             mutableListOf<String>(),
-            CurrentOrderManager.getCurrentUserOrder().customization.sides
+            CurrentOrderManager.getCurrentUserOrder().customization.sides,
         )
         assertEquals(
             mutableListOf<String>(),
-            CurrentOrderManager.getCurrentUserOrder().customization.toppings
+            CurrentOrderManager.getCurrentUserOrder().customization.toppings,
         )
     }
 }

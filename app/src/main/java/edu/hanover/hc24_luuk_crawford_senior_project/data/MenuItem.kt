@@ -8,9 +8,9 @@ package edu.hanover.hc24_luuk_crawford_senior_project.data
  * @param imageLink link to image (at least jpeg works)
  */
 data class MenuItem(
-    val name: String = "default item", val id: Long = 0L,
-    val customizationType: String = "default type", val imageLink: String = "https://i.imgur.com/BDa36Zp.jpeg",
-    val price: String = "Mealswipe"
+    val name: String = "default item",
+    val id: Long = 0L,
+    val customizationType: String = "default type",
+    val imageLink: String = "https://i.imgur.com/BDa36Zp.jpeg",
+    val price: String = "Mealswipe",
 )
-
-

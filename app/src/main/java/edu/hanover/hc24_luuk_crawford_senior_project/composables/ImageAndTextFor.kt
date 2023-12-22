@@ -8,7 +8,6 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
@@ -28,14 +27,16 @@ fun imageAndTextFor(menuItem: MenuItem) {
         Image(
             painter = rememberAsyncImagePainter(menuItem.imageLink),
             contentDescription = stringResource(R.string.lostImage),
-            modifier = Modifier.size(80.dp)
+            modifier = Modifier.size(80.dp),
         )
         Column(Modifier.padding(10.dp)) {
-            Text(text = menuItem.name,
+            Text(
+                text = menuItem.name,
                 style = TextStyle(fontSize = 30.sp),
                 fontWeight = FontWeight.Bold,
             )
-            Text(text = menuItem.price,
+            Text(
+                text = menuItem.price,
                 style = TextStyle(fontSize = 20.sp),
             )
         }

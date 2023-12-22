@@ -21,7 +21,7 @@ class ItemListTest {
             name = "VeggieBurgerTest",
             id = 101,
             customizationType = "Burger",
-            imageLink = "https://i.imgur.com/K6alfDv.jpeg"
+            imageLink = "https://i.imgur.com/K6alfDv.jpeg",
         )
         MenuData.addMenuItem(itemExample)
         TestCase.assertNotSame(testMenuList, MenuData.get().menuItemList)
@@ -36,7 +36,7 @@ class ItemListTest {
             "name" to "candy Apple",
             "id" to 300L,
             "customizationType" to "burger",
-            "imageLink" to "www.something../jpeg"
+            "imageLink" to "www.something../jpeg",
         )
         val createdItem = createItemFrom(food)
 
@@ -51,12 +51,12 @@ class ItemListTest {
      * Tests different ID then different name tp ensure they are not considered the same.
      */
     @Test
-    fun createItemFromFoodTestSmallDifferences(){
+    fun createItemFromFoodTestSmallDifferences() {
         val food = mapOf(
             "name" to "veggie Burger",
             "id" to 10L,
             "customizationType" to "burger",
-            "imageLink" to "www.something../jpeg"
+            "imageLink" to "www.something../jpeg",
         )
         val createdItem = createItemFrom(food)
 
@@ -66,5 +66,4 @@ class ItemListTest {
         val testItemDifferentName = MenuItem("not apple", 10, "burger", "www.something../jpeg")
         TestCase.assertNotSame(testItemDifferentName, createdItem)
     }
-
 }

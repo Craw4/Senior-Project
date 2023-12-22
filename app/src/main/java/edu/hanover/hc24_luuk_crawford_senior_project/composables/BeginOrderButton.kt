@@ -33,30 +33,30 @@ fun beginOrderButton(onNavigateToMenu: () -> Unit) {
         modifier = Modifier
             .fillMaxWidth()
             .padding(16.dp),
-        contentAlignment = Alignment.Center
+        contentAlignment = Alignment.Center,
     ) {
         Button(
             onClick = {
-                if (getUserName() != "" ){
+                if (getUserName() != "") {
                     val newClickTime = System.currentTimeMillis()
-                    val milisPassed = newClickTime-lastTimeClicked
-                    if(milisPassed > 5000){
+                    val milisPassed = newClickTime - lastTimeClicked
+                    if (milisPassed > 5000) {
                         lastTimeClicked = newClickTime
                         onNavigateToMenu()
-                        ToastShow(context,R.string.loadingMenu)
+                        ToastShow(context, R.string.loadingMenu)
                     }
-                }
-                else{
+                } else {
                     ToastShow(context, R.string.please_enter_your_name)
                 }
-                      },
+            },
             shape = RoundedCornerShape(18.dp),
-            modifier = Modifier.testTag("beginOrderButton")
-            ) {
+            modifier = Modifier.testTag("beginOrderButton"),
+        ) {
             Text(
                 text = stringResource(id = R.string.beginOrder),
                 fontSize = 40.sp,
-                color = Color.White, textAlign = TextAlign.Center
+                color = Color.White,
+                textAlign = TextAlign.Center,
             )
         }
     }

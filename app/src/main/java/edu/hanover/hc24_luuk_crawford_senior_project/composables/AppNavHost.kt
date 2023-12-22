@@ -11,7 +11,6 @@ import edu.hanover.hc24_luuk_crawford_senior_project.composables.screens.Welcome
 import edu.hanover.hc24_luuk_crawford_senior_project.data.Destination
 import edu.hanover.hc24_luuk_crawford_senior_project.data.currentOrder.CurrentOrderManager.getCurrentUserOrder
 
-
 /**
  * Nav host is the composable navigation manager.
  * Handles which composable to load when triggered
@@ -22,11 +21,11 @@ import edu.hanover.hc24_luuk_crawford_senior_project.data.currentOrder.CurrentOr
 @Composable
 fun AppNavHost(
     startDestination: String = Destination.welcomeScreen.name,
-    navController: NavHostController = rememberNavController()
+    navController: NavHostController = rememberNavController(),
 ) {
     NavHost(
         navController = navController,
-        startDestination = startDestination
+        startDestination = startDestination,
     ) {
         val onNavigateToMenuFunction =
             { navController.navigate(Destination.menuScreen.name) }
@@ -40,6 +39,6 @@ fun AppNavHost(
 
         composable(Destination.menuScreen.name) { MenuScreen(onNavigateToToppingsFunction) }
 
-        composable(Destination.toppingsScreen.name) { ToppingsScreen( onNavigateToWelcomeScreen,getCurrentUserOrder()) }
+        composable(Destination.toppingsScreen.name) { ToppingsScreen(onNavigateToWelcomeScreen, getCurrentUserOrder()) }
     }
 }

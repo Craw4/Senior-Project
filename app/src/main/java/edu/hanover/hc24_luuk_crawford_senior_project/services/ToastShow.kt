@@ -9,7 +9,8 @@ import android.widget.Toast
 fun ToastShow(context: Context, message: Int) {
     Toast.makeText(
         context,
-        message, Toast.LENGTH_LONG
+        message,
+        Toast.LENGTH_LONG,
     )
         .show()
 }

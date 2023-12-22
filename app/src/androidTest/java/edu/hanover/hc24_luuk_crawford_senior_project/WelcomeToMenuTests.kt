@@ -1,8 +1,6 @@
 package edu.hanover.hc24_luuk_crawford_senior_project
 
-
 import androidx.compose.ui.test.assertIsDisplayed
-import androidx.compose.ui.test.assertIsNotDisplayed
 import androidx.compose.ui.test.hasTestTag
 import androidx.compose.ui.test.junit4.createComposeRule
 import androidx.compose.ui.test.performClick
@@ -30,7 +28,7 @@ internal class WelcomeToMenuTests {
      * Clears any changes then adds default MenuItem for each test.
      */
     @Before
-    fun onlySomethingInList(){
+    fun onlySomethingInList() {
         MenuData.clearMenuContents()
         MenuData.addMenuItem(MenuItem())
     }
@@ -48,7 +46,7 @@ internal class WelcomeToMenuTests {
      * Opens welcome screen, ensures buttons and such exist.
      */
     @Test
-    fun welcomeScreenExistsTest(){
+    fun welcomeScreenExistsTest() {
         composeTestRule.setContent {
             WelcomeScreen {
             }
@@ -61,7 +59,7 @@ internal class WelcomeToMenuTests {
      * Performs text input to allow navigation.
      */
     @Test
-    fun navigateFromWelcomeToMenuTest(){
+    fun navigateFromWelcomeToMenuTest() {
         composeTestRule.setContent {
             AppNavHost(Destination.welcomeScreen.name)
         }
@@ -94,7 +92,7 @@ internal class WelcomeToMenuTests {
      * Opens menuScreen and checks to ensure everything exists
      */
     @Test
-    fun menuScreenExistsTest(){
+    fun menuScreenExistsTest() {
         composeTestRule.setContent {
             AppNavHost(Destination.menuScreen.name)
         }
@@ -118,7 +116,7 @@ internal class WelcomeToMenuTests {
      * (beginOrderButton would go away if page changed).
      */
     @Test
-    fun noNamePreventNavigateFromWelcomeToMenu(){
+    fun noNamePreventNavigateFromWelcomeToMenu() {
         composeTestRule.setContent {
             AppNavHost(Destination.welcomeScreen.name)
         }
@@ -133,4 +131,3 @@ internal class WelcomeToMenuTests {
         checkWelcomeScreenDisplayed()
     }
 }
-

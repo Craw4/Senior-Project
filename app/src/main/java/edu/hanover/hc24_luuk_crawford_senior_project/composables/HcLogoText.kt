@@ -19,14 +19,14 @@ import com.zybooks.hc24_luuk_crawford_senior_project.R
  */
 @Composable
 fun hcLogoText() {
-    Box(modifier = Modifier.fillMaxWidth(), contentAlignment = Alignment.Center){
+    Box(modifier = Modifier.fillMaxWidth(), contentAlignment = Alignment.Center) {
         Text(
             text = stringResource(id = R.string.collegeNameCaps),
             fontSize = 35.sp,
             fontWeight = FontWeight.Bold,
             textAlign = TextAlign.Center,
             color = colorResource(id = R.color.hanoverWebRed),
-            modifier = Modifier.testTag("collegeNameText")
+            modifier = Modifier.testTag("collegeNameText"),
         )
     }
 }
